@@ -1,15 +1,5 @@
-python3 -m venv env1
-ls
-source env1/bin/activate
-pip3 install pandas
-
-import pandas as pd 
-'1' = ' Add Transaction'
-'2' = 'Edit Transaction'
-'3' = 'Delete Transaction'
-'4' = 'View Summary'
-'5' = 'Save and Exit'
-  while
+import pandas as pd
+import csv
 print("""
 Personal Expense Tracker
   1. Add Transaction
@@ -18,7 +8,25 @@ Personal Expense Tracker
   4. View Summary
   5. Save and Exit
   """)
-input('Enter your choice:')
-if input = '5'
-  break
-print('Save and Exit')
+
+description = ""
+amount = ""
+date_input = ""
+expense_df = pd.DataFrame(columns=["Date","Description","Amount"])
+choice = ""
+while choice != "5":
+    choice = input("Enter your choice: ")
+    if choice == "1":
+       description = input("Enter description of expense: ")
+       amount = input("Enter amount: ")
+       date_input = input("Enter date of expense (YYYY-MM-DD): ") 
+       expense_df = pd.read_csv("expense.csv")
+    elif choice == "2":
+        print("edit transaction")
+    elif choice == "3":
+        print("delete transaction")
+    elif choice == "4":
+        print("Expense: ")
+        print(expense_df)
+    else:
+        print("save and exit")
