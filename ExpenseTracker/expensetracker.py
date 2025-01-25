@@ -26,7 +26,7 @@ Personal Expense Tracker
         df.to_csv(filename, index=False)
         
     elif choice == "2":
-        print("edit transaction")
+        
         print(df)
         index = int(input("enter the edited tag:"))
         print(df.loc[index])
@@ -37,7 +37,7 @@ Personal Expense Tracker
         df.loc[index] = {'Date':new_date,'Type':new_type,'Description':new_descripition,'Amount':float(new_amount)}
         df.to_csv(filename, index=False)   
     elif choice == "3":
-        print("delete transaction")
+        print(df)
         index = int(input("enter the deleted tag:"))
         df = df.drop(index).reset_index(drop =True)
         df.to_csv(filename, index=False)
