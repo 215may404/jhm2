@@ -1,5 +1,5 @@
-X = input(Enter a price:)
-Y = input(Enter another price:)
+X = input("Enter a price:")
+Y = input("Enter another price:")
 if X > Y:
   print('The first price is larger than the second one.')
 elif X = Y:
