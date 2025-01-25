@@ -1,0 +1,32 @@
+import requests
+import matplotlib.pyplot as plt
+
+api_key = "8c118e1a1dd44c7997322234252501"
+city = input("City: ")
+url = f"http://api.weatherapi.com/v1/current.json?key=" + api_key + "&q=" + city + "&aqi=no"
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+else:
+    print("Error: Unable to fetch weather data. Please check the city name or API key.")
+    
+location = data['location']['name']
+temperature_c = data['current']['temp_c']
+humidity = data['current']['humidity']
+wind_speed_kph = data['current']['wind_kph']
+condition = data['current']['condition']['text']
+uv_index = data['current']['uv']
+
+print(f"\nWeather Data for {location}:")
+print(f"\nTemperature:{temperature_c}°c")
+print(f"\nHumidity:{humidity}%")
+print(f"\nWind Speed:{wind_speed_kph}km/h")
+print(f"\nCondition:{condition}")
+print(f"\nUV INdex:{uv_index}")
+
+labels = ['temperature(°c)','humidity(%)','wind speed(km/h)','uv index']
+values = [temperature_c,humidity,wind_speed_kph,uv_index]
+plt.bar(labels,values,color = ['orange','skyblue','green','purple'])
+plt.title('Weather Parameters Visualization')
+plt.ylabel('values')
+plt.savefig("weateher_parameters_visualization.png")
