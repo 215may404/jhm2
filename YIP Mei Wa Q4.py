@@ -10,7 +10,7 @@ for i in range (1,5):
         else:
             break
 print("End of input.")
-avg = np.average(round(heights,2))
-height = np.max(round(heights,2))
-print(f"The average height of these students is {avg} cm.")
-print(f"The maximum height of these students is {height} cm.")
+avg = np.average(heights)
+height = np.max(heights)
+print(f"The average height of these students is {"%.2f" % avg} cm.")
+print(f"The maximum height of these students is {"%.2f" % height} cm.")
